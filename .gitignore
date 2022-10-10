@@ -32,9 +32,12 @@ migrate_working_dir/
 .pub/
 /build/
 
-//Firebase
+# Firebase
+# android/app/google-services.json
 google-services.json
+# ios/firebase_app_id_file.json
 firebase_app_id_file.json
+# ios/Runner/GoogleService-Info.plist
 GoogleService-Info.plist
 
 # Web related
