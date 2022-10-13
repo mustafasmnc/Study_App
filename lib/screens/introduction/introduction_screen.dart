@@ -24,14 +24,15 @@ class AppIntroductionScreen extends StatelessWidget {
               const SizedBox(height: 40),
               const Text(
                 'This is a study app. You can use it as you want. If you understand how this works, you would be able to scale it.',
-                textAlign: TextAlign.center,style: TextStyle(
+                textAlign: TextAlign.center,
+                style: TextStyle(
                   fontSize: 18,
                   color: onSurfaceTextColor,
                 ),
               ),
               const SizedBox(height: 40),
               AppCircleButton(
-                onTap: () {},
+                onTap: () => Get.offAllNamed("/home"),
                 child: const Icon(
                   Icons.arrow_forward_ios,
                   size: 35,
