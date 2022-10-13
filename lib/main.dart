@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app/bindings/initial_bindings.dart';
+import 'package:study_app/configs/themes/app_light_theme.dart';
+import 'package:study_app/controllers/theme/theme_controller.dart';
 import 'package:study_app/data_uploader_screen.dart';
 import 'package:study_app/firebase_options.dart';
 import 'package:study_app/routes/app_routes.dart';
@@ -39,9 +41,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Study',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Get.find<ThemeController>().darkTheme,
       getPages: AppRoutes.routes(),
     );
   }
