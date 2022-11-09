@@ -11,7 +11,7 @@ class AppCircleButton extends StatelessWidget {
   final Widget child;
   final Color? color;
   final double width;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
