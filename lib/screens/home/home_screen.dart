@@ -8,7 +8,7 @@ import 'package:study_app/configs/themes/app_colors.dart';
 import 'package:study_app/configs/themes/custom_text_styles.dart';
 import 'package:study_app/configs/themes/ui_parameters.dart';
 import 'package:study_app/controllers/drawer/zoom_drawer_controller.dart';
-import 'package:study_app/controllers/question_paper/quesion_paper_controller.dart';
+import 'package:study_app/controllers/question_paper/question_paper_controller.dart';
 import 'package:study_app/screens/home/menu_screen.dart';
 import 'package:study_app/screens/home/question_card.dart';
 import 'package:study_app/widgets/app_circle_button.dart';
