@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:study_app/firebase_ref/firebase_references.dart';
+import 'package:study_app/screens/login/login_screen.dart';
 import 'package:study_app/widgets/dialogs/dialogue_widget.dart';
 
 class AuthController extends GetxController {
@@ -62,7 +63,7 @@ class AuthController extends GetxController {
     Get.dialog(
       Dialogs.questionStartDialog(onTap: () {
         Get.back();
-        //Navigate to login page
+        navigateTLoginPage();
       }),
       barrierDismissible: false,
     );
@@ -70,5 +71,9 @@ class AuthController extends GetxController {
 
   bool isLoggedIn() {
     return _auth.currentUser != null;
+  }
+
+  void navigateTLoginPage() {
+    Get.toNamed(LoginScreen.routeName);
   }
 }
