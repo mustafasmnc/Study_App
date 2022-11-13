@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:study_app/firebase_ref/firebase_references.dart';
@@ -54,8 +53,8 @@ class AuthController extends GetxController {
     return _user.value;
   }
 
-  saveUser(GoogleSignInAccount account) {
-    userRF.doc(account.email).set({
+  saveUser(GoogleSignInAccount account) async {
+    await userRF.doc(account.email).set({
       "email": account.email,
       "name": account.displayName,
       "profilePic": account.photoUrl

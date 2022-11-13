@@ -31,7 +31,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
           angle: 0.0,
           style: DrawerStyle.defaultStyle,
           menuBackgroundColor: customScaffoldColor(context),
-          slideWidth: MediaQuery.of(context).size.width * 0.6,
+          slideWidth: MediaQuery.of(context).size.width * 0.75,
           controller: _.zoomDrawerController,
           menuScreen: MenuScreen(),
           mainScreen: Container(

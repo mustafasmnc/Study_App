@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:study_app/controllers/auth/auth_controller.dart';
 import 'package:study_app/firebase_ref/firebase_references.dart';
 import 'package:study_app/models/question_paper_model.dart';
+import 'package:study_app/screens/question/questions_screen.dart';
 import 'package:study_app/services/firebase_storage_service.dart';
 
 class QuestionPaperController extends GetxController {
@@ -44,10 +45,10 @@ class QuestionPaperController extends GetxController {
         Get.back();
         //Get.offNamed();
       } else {
-        //Get.offNamed();
+        Get.offNamed(QuestionsScreen.routeName, arguments: paper);
       }
     } else {
-      print('title: ${paper.title}');
+      //print('title: ${paper.title}');
       _authController.showLoginAlertDialog();
     }
   }

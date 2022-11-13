@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
 import 'package:study_app/controllers/drawer/zoom_drawer_controller.dart';
 import 'package:study_app/controllers/question_paper/question_paper_controller.dart';
+import 'package:study_app/controllers/question_paper/questions_controller.dart';
 import 'package:study_app/screens/home/home_screen.dart';
 import 'package:study_app/screens/introduction/introduction_screen.dart';
 import 'package:study_app/screens/login/login_screen.dart';
+import 'package:study_app/screens/question/questions_screen.dart';
 import 'package:study_app/screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -28,5 +30,11 @@ class AppRoutes {
           name: LoginScreen.routeName,
           page: () => LoginScreen(),
         ),
+        GetPage(
+            name: QuestionsScreen.routeName,
+            page: () => QuestionsScreen(),
+            binding: BindingsBuilder(() {
+              Get.put(QuestionsController());
+            })),
       ];
 }
