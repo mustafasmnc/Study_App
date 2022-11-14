@@ -45,7 +45,8 @@ class QuestionPaperController extends GetxController {
         Get.back();
         //Get.offNamed();
       } else {
-        Get.offNamed(QuestionsScreen.routeName, arguments: paper);
+        //print(paper.id);
+        Get.toNamed(QuestionsScreen.routeName, arguments: paper);
       }
     } else {
       //print('title: ${paper.title}');
