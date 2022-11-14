@@ -9,12 +9,16 @@ class QuestionsController extends GetxController {
   final loadingStatus = LoadingStatus.loading.obs;
   late QuestionPaperModel questionPaperModel;
   final allQuestions = <Questions>[];
+  final questionIndex = 0.obs;
+  bool get isFirstQuestion => questionIndex.value > 0;
+  bool get isLastQuestion => questionIndex.value >= allQuestions.length - 1;
   Rxn<Questions> currentQuestion = Rxn<Questions>();
+
   @override
   void onReady() {
     final _questionPaper = Get.arguments as QuestionPaperModel;
-    print(_questionPaper.title);
-    print(_questionPaper.id);
+    // print(_questionPaper.title);
+    // print(_questionPaper.id);
     loadData(_questionPaper);
     super.onReady();
   }
@@ -52,7 +56,7 @@ class QuestionsController extends GetxController {
         if (questionPaper.questions != null &&
             questionPaper.questions!.isNotEmpty) {
           allQuestions.assignAll(questionPaper.questions!);
-          currentQuestion.value=questionPaper.questions![0];
+          currentQuestion.value = questionPaper.questions![0];
           if (kDebugMode) {
             print(questionPaper.questions![0].question);
           }
@@ -68,8 +72,20 @@ class QuestionsController extends GetxController {
     }
   }
 
-  void selectedAnswer(String? answer){
-    currentQuestion.value!.selectedAnswer=answer;
+  void selectedAnswer(String? answer) {
+    currentQuestion.value!.selectedAnswer = answer;
     update(['answers_list']);
+  }
+
+  void nextQuestion() {
+    if (questionIndex.value >= allQuestions.length - 1) return;
+    questionIndex.value++;
+    currentQuestion.value = allQuestions[questionIndex.value];
+  }
+
+  void previousQuestion() {
+    if (questionIndex.value <= 0) return;
+    questionIndex.value--;
+    currentQuestion.value = allQuestions[questionIndex.value];
   }
 }
