@@ -23,7 +23,7 @@ class BackgroundDecoration extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(child: child)
+        Positioned.fill(child: SafeArea(child: child))
       ],
     );
   }
@@ -33,7 +33,7 @@ class BackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = Colors.green.withOpacity(0.1);
-    
+
     final path = Path();
     path.moveTo(0, 0);
     path.lineTo(size.width * 0.2, 0);
@@ -43,7 +43,7 @@ class BackgroundPainter extends CustomPainter {
     final path1 = Path();
     path1.moveTo(size.width, 0);
     path1.lineTo(size.width * 0.8, 0);
-    path1.lineTo(size.width*0.2, size.height);
+    path1.lineTo(size.width * 0.2, size.height);
     path1.lineTo(size.width, size.height);
     path1.close();
 

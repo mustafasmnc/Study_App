@@ -6,6 +6,7 @@ import 'package:study_app/configs/themes/ui_parameters.dart';
 import 'package:study_app/controllers/question_paper/questions_controller.dart';
 import 'package:study_app/firebase_ref/loading_status.dart';
 import 'package:study_app/widgets/common/background_decoration.dart';
+import 'package:study_app/widgets/common/custom_appbar.dart';
 import 'package:study_app/widgets/common/main_button.dart';
 import 'package:study_app/widgets/common/question_place_holder.dart';
 import 'package:study_app/widgets/content_area.dart';
@@ -18,6 +19,19 @@ class QuestionsScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        leading: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: const ShapeDecoration(
+              shape: StadiumBorder(
+                  side: BorderSide(color: onSurfaceTextColor, width: 2))),
+          child: Text('Timer'),
+        ),
+        showActionIcon: true,
+        titleWidget: Obx(() => Text(
+            'Question ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}',
+            style: appBarTS)),
+      ),
       body: BackgroundDecoration(
           child: Obx(() => Column(
                 children: [
