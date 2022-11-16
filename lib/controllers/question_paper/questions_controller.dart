@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,13 @@ class QuestionsController extends GetxController {
   final questionIndex = 0.obs;
   bool get isFirstQuestion => questionIndex.value > 0;
   bool get isLastQuestion => questionIndex.value >= allQuestions.length - 1;
+
   Rxn<Questions> currentQuestion = Rxn<Questions>();
+
+  //timer
+  Timer? _timer;
+  int remainSeconds = 1;
+  final time = '00:00'.obs;
 
   @override
   void onReady() {
@@ -52,23 +60,24 @@ class QuestionsController extends GetxController {
             .toList();
 
         _questions.answers = answers;
-
-        if (questionPaper.questions != null &&
-            questionPaper.questions!.isNotEmpty) {
-          allQuestions.assignAll(questionPaper.questions!);
-          currentQuestion.value = questionPaper.questions![0];
-          if (kDebugMode) {
-            print(questionPaper.questions![0].question);
-          }
-          loadingStatus.value = LoadingStatus.completed;
-        } else {
-          loadingStatus.value = LoadingStatus.error;
-        }
       }
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
       }
+    }
+
+    if (questionPaper.questions != null &&
+        questionPaper.questions!.isNotEmpty) {
+      allQuestions.assignAll(questionPaper.questions!);
+      currentQuestion.value = questionPaper.questions![0];
+      _startTimer(questionPaper.timeSeconds);
+      if (kDebugMode) {
+        print(questionPaper.questions![0].question);
+      }
+      loadingStatus.value = LoadingStatus.completed;
+    } else {
+      loadingStatus.value = LoadingStatus.error;
     }
   }
 
@@ -87,5 +96,22 @@ class QuestionsController extends GetxController {
     if (questionIndex.value <= 0) return;
     questionIndex.value--;
     currentQuestion.value = allQuestions[questionIndex.value];
+  }
+
+  _startTimer(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainSeconds = seconds;
+    Timer.periodic(duration, (Timer timer) {
+      if (remainSeconds == 0) {
+        timer.cancel();
+      } else {
+        int minutes = remainSeconds ~/ 60;
+        int seconds = remainSeconds % 60;
+        time.value = minutes.toString().padLeft(2, "0") +
+            ":" +
+            seconds.toString().padLeft(2, "0");
+        remainSeconds--;
+      }
+    });
   }
 }

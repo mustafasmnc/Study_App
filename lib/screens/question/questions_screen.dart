@@ -11,6 +11,7 @@ import 'package:study_app/widgets/common/main_button.dart';
 import 'package:study_app/widgets/common/question_place_holder.dart';
 import 'package:study_app/widgets/content_area.dart';
 import 'package:study_app/widgets/questions/answer_card.dart';
+import 'package:study_app/widgets/questions/countdown_timer.dart';
 
 class QuestionsScreen extends GetView<QuestionsController> {
   const QuestionsScreen({Key? key}) : super(key: key);
@@ -25,7 +26,10 @@ class QuestionsScreen extends GetView<QuestionsController> {
           decoration: const ShapeDecoration(
               shape: StadiumBorder(
                   side: BorderSide(color: onSurfaceTextColor, width: 2))),
-          child: Text('Timer'),
+          child: Obx(() => CountdownTimer(
+                time: controller.time.value,
+                color: onSurfaceTextColor,
+              )),
         ),
         showActionIcon: true,
         titleWidget: Obx(() => Text(
