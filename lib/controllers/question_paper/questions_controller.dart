@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:study_app/firebase_ref/firebase_references.dart';
 import 'package:study_app/firebase_ref/loading_status.dart';
 import 'package:study_app/models/question_paper_model.dart';
+import 'package:study_app/screens/home/home_screen.dart';
 
 class QuestionsController extends GetxController {
   final loadingStatus = LoadingStatus.loading.obs;
@@ -86,6 +87,22 @@ class QuestionsController extends GetxController {
     update(['answers_list']);
   }
 
+  String get completedTest {
+    final answered = allQuestions
+        .where((element) => element.selectedAnswer != null)
+        .toList()
+        .length;
+    return '$answered out of ${allQuestions.length} answered';
+  }
+
+  void jumpToQuestion(int index, {bool isGoBack = true}) {
+    questionIndex.value = index;
+    currentQuestion.value = allQuestions[index];
+    if (isGoBack) {
+      Get.back();
+    }
+  }
+
   void nextQuestion() {
     if (questionIndex.value >= allQuestions.length - 1) return;
     questionIndex.value++;
@@ -101,7 +118,7 @@ class QuestionsController extends GetxController {
   _startTimer(int seconds) {
     const duration = Duration(seconds: 1);
     remainSeconds = seconds;
-    Timer.periodic(duration, (Timer timer) {
+    _timer = Timer.periodic(duration, (Timer timer) {
       if (remainSeconds == 0) {
         timer.cancel();
       } else {
@@ -113,5 +130,10 @@ class QuestionsController extends GetxController {
         remainSeconds--;
       }
     });
+  }
+
+  void complete() {
+    _timer!.cancel();
+    Get.offAndToNamed(HomeScreen.routeName);
   }
 }

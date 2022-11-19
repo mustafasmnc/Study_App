@@ -6,6 +6,7 @@ import 'package:study_app/screens/home/home_screen.dart';
 import 'package:study_app/screens/introduction/introduction_screen.dart';
 import 'package:study_app/screens/login/login_screen.dart';
 import 'package:study_app/screens/question/questions_screen.dart';
+import 'package:study_app/screens/question/test_overview_screen.dart';
 import 'package:study_app/screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -34,7 +35,11 @@ class AppRoutes {
             name: QuestionsScreen.routeName,
             page: () => QuestionsScreen(),
             binding: BindingsBuilder(() {
-              Get.put(QuestionsController());
+              Get.put<QuestionsController>(QuestionsController());
             })),
+        GetPage(
+          name: TestOverviewScreen.routeName,
+          page: () => TestOverviewScreen(),
+        ),
       ];
 }

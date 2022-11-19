@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Study',
-      theme: Get.find<ThemeController>().darkTheme,
+      theme: Get.find<ThemeController>().lightTheme,
       getPages: AppRoutes.routes(),
     );
   }

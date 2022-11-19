@@ -5,6 +5,9 @@ import 'package:study_app/configs/themes/app_light_theme.dart';
 import 'package:study_app/configs/themes/ui_parameters.dart';
 
 const Color onSurfaceTextColor = Colors.white;
+const Color correctAnswerColor = Color(0xFF3ac3cb);
+const Color wrongAnswerColor = Color(0xFFf85187);
+const Color notAnsweredColor = Color(0xFF2a3c65);
 
 const mainGradientLight = LinearGradient(
     begin: Alignment.topLeft,
@@ -33,9 +36,8 @@ Color answerSelectedColor() => UIParameters.isDarkMode()
     ? Theme.of(Get.context!).cardColor.withOpacity(0.3)
     : Theme.of(Get.context!).primaryColor;
 
-Color answerSelectedBorderColor() => UIParameters.isDarkMode()
-    ? primaryColorDark
-    : primaryColorLight;
+Color answerSelectedBorderColor() =>
+    UIParameters.isDarkMode() ? primaryColorDark : primaryColorLight;
 
 Color answerBorderColor() => UIParameters.isDarkMode()
     ? const Color.fromARGB(255, 20, 46, 158)

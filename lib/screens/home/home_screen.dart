@@ -45,7 +45,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppCircleButton(
+                        InkWell(
                           child: const Icon(
                             AppIcons.menuLeft,
                           ),

@@ -5,6 +5,7 @@ import 'package:study_app/configs/themes/custom_text_styles.dart';
 import 'package:study_app/configs/themes/ui_parameters.dart';
 import 'package:study_app/controllers/question_paper/questions_controller.dart';
 import 'package:study_app/firebase_ref/loading_status.dart';
+import 'package:study_app/screens/question/test_overview_screen.dart';
 import 'package:study_app/widgets/common/background_decoration.dart';
 import 'package:study_app/widgets/common/custom_appbar.dart';
 import 'package:study_app/widgets/common/main_button.dart';
@@ -20,6 +21,7 @@ class QuestionsScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
         leading: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -122,7 +124,7 @@ class QuestionsScreen extends GetView<QuestionsController> {
                                 child: MainButton(
                                   onTap: () {
                                     if (controller.isLastQuestion) {
-                                      //finish the exam
+                                      Get.toNamed(TestOverviewScreen.routeName);
                                     } else {
                                       controller.nextQuestion();
                                     }
