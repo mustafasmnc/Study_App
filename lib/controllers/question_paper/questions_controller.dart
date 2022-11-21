@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:study_app/controllers/question_paper/question_paper_controller.dart';
 import 'package:study_app/firebase_ref/firebase_references.dart';
 import 'package:study_app/firebase_ref/loading_status.dart';
 import 'package:study_app/models/question_paper_model.dart';
@@ -86,7 +86,7 @@ class QuestionsController extends GetxController {
 
   void selectedAnswer(String? answer) {
     currentQuestion.value!.selectedAnswer = answer;
-    update(['answers_list']);
+    update(['answers_list','answer_review_list']);
   }
 
   String get completedTest {
@@ -121,7 +121,7 @@ class QuestionsController extends GetxController {
     const duration = Duration(seconds: 1);
     remainSeconds = seconds;
     _timer = Timer.periodic(duration, (Timer timer) {
-      if (remainSeconds == 0) {
+      if (remainSeconds < 0) {
         timer.cancel();
       } else {
         int minutes = remainSeconds ~/ 60;
@@ -140,5 +140,15 @@ class QuestionsController extends GetxController {
 
     // offNamedUntil: By the Named route, remove screens until satisfying the condition, and then, add a new screen. It’s the same with Navigation.pushNamedAndRemoveUntil()
     //Get.offNamedUntil(ResultScreen.routeName, ModalRoute.withName(HomeScreen.routeName));
+  }
+
+  void tryAgain() {
+    Get.find<QuestionPaperController>()
+        .navigateToQuestions(paper: questionPaperModel, tryAgain: true);
+  }
+
+  void navigateToHome() {
+    _timer!.cancel();
+    Get.offNamedUntil(HomeScreen.routeName, (route) => false);
   }
 }
