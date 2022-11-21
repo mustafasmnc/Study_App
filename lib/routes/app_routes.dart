@@ -5,6 +5,7 @@ import 'package:study_app/controllers/question_paper/questions_controller.dart';
 import 'package:study_app/screens/home/home_screen.dart';
 import 'package:study_app/screens/introduction/introduction_screen.dart';
 import 'package:study_app/screens/login/login_screen.dart';
+import 'package:study_app/screens/question/answer_check_screen.dart';
 import 'package:study_app/screens/question/questions_screen.dart';
 import 'package:study_app/screens/question/result_screen.dart';
 import 'package:study_app/screens/question/test_overview_screen.dart';
@@ -47,8 +48,12 @@ class AppRoutes {
             name: ResultScreen.routeName,
             page: () => ResultScreen(),
             binding: BindingsBuilder(() {
-               Get.lazyPut<QuestionsController>(() => QuestionsController(),
+              Get.lazyPut<QuestionsController>(() => QuestionsController(),
                   fenix: true);
             })),
+        GetPage(
+          name: AnswerCheckScreen.routeName,
+          page: () => AnswerCheckScreen(),
+        ),
       ];
 }

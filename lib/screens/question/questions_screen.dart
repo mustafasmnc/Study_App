@@ -73,7 +73,7 @@ class QuestionsScreen extends GetView<QuestionsController> {
                                             .answers[index];
                                         return AnswerCard(
                                           answer:
-                                              '${answer.identifier}. ${answer.answer}',
+                                              '${answer.identifier}-) ${answer.answer}',
                                           onTap: () =>
                                               controller.selectedAnswer(
                                                   answer.identifier),

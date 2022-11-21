@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:study_app/configs/themes/custom_text_styles.dart';
 import 'package:study_app/controllers/question_paper/questions_controller.dart';
 import 'package:study_app/controllers/question_paper/questions_controller_extension.dart';
+import 'package:study_app/screens/question/answer_check_screen.dart';
 import 'package:study_app/widgets/common/background_decoration.dart';
 import 'package:study_app/widgets/common/custom_appbar.dart';
 import 'package:study_app/widgets/content_area.dart';
@@ -80,6 +81,7 @@ class ResultScreen extends GetView<QuestionsController> {
                                   status: _status,
                                   onTap: () {
                                     controller.jumpToQuestion(index,isGoBack: false);
+                                    Get.toNamed(AnswerCheckScreen.routeName);
                                   },
                                 );
                               }))
