@@ -19,7 +19,9 @@ class MyZoomDrawerController extends GetxController {
     update();
   }
 
-  void signIn() {}
+  void signIn() {
+    Get.find<AuthController>().signInwithGoogle();
+  }
 
   void signOut() {
     Get.find<AuthController>().signOut();

@@ -4,7 +4,6 @@ import 'package:study_app/app_icons.dart';
 import 'package:study_app/configs/themes/custom_text_styles.dart';
 import 'package:study_app/configs/themes/ui_parameters.dart';
 import 'package:study_app/screens/question/test_overview_screen.dart';
-import 'package:study_app/widgets/app_circle_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

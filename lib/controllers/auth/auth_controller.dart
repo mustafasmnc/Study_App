@@ -14,7 +14,7 @@ class AuthController extends GetxController {
   }
 
   late FirebaseAuth _auth;
-  final _user = Rxn<User>();
+  var _user = Rxn<User>();
   late Stream<User?> _authStateChanges;
 
   void initAuth() async {

@@ -32,6 +32,10 @@ Color customScaffoldColor(BuildContext context) => UIParameters.isDarkMode()
     ? const Color(0xFF2e3c62)
     : const Color.fromARGB(255, 240, 237, 255);
 
+Color customMenuColor(BuildContext context) => UIParameters.isDarkMode()
+    ? const Color(0xFF2e3c62)
+    : primaryLightColorLight;
+
 Color answerSelectedColor() => UIParameters.isDarkMode()
     ? Theme.of(Get.context!).cardColor.withOpacity(0.3)
     : Theme.of(Get.context!).primaryColor;
