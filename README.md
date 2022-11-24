@@ -1,16 +1,14 @@
 # study_app
 
-A new Flutter project.
+Flutter Educational app tutorial with backend which is also like a student or study app or text or examp app. It's not just UI, it also includes backend with for submitting data and retrieving data from firebase. We covered basic to advanced firebase topics like storing data, retrieving data, firebase batch operation, image uploading.
+This study app is like a quiz app which covers taking test or exam. This app keeps the record of each user and submits data to firebase along with exam score.
 
-## Getting Started
+## ScreenShots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/ıntroscreen.png" alt="ıntroscreen" title="ıntroscreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/homescreen.png" alt="homescreen" title="homescreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/menuscreen.png" alt="menuscreen" title="menuscreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/loadingscreen.png" alt="loadingscreen" title="loadingscreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/questionscreen.png" alt="questionscreen" title="questionscreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/overviewscreen.png" alt="overviewscreen" title="overviewscreen" width="200">|
+<img src="https://github.com/mustafasmnc/Study_App/blob/main/assets/screenshots/resultscreen.png" alt="resultscreen" title="resultscreen" width="200">|
